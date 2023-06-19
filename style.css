@@ -56,7 +56,7 @@ body {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 700;
   margin: 1.5rem 0;
 }
@@ -84,7 +84,7 @@ p {
 
 li {
   /** the image will be vertically aligned in the center **/
-  background: url(/assets/images/icon-list.svg) no-repeat;
+  background: url(./assets/images/icon-list.svg) no-repeat;
   background-size: 18px;
   height: auto;
 
