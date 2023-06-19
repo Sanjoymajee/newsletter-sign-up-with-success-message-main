@@ -155,6 +155,17 @@ button {
   margin-bottom: 1.5rem;
 }
 
+button:hover {
+  background: var(--Tomato);
+  box-shadow: 0px 0px 30px var(--Tomato);
+  transition: all 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  border: none;
+}
+
+button::after {
+  transition: all 0.4s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
 input:focus {
   border: none;
 }
@@ -195,10 +206,12 @@ span {
   .newsletter-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    border-radius: 2rem;
   }
 
   .card__image {
-    padding: 1rem;
+    padding: 0;
     grid-column-start: 2;
   }
 
@@ -210,7 +223,7 @@ span {
 
   .card__content {
     box-sizing: border-box;
-    padding: 2rem;
+    padding: 2rem 2rem 2rem 0;
     grid-row-start: 1;
     border-radius: 1.5rem 0 0 1.5rem;
     width: 100%;
@@ -224,6 +237,10 @@ span {
     width: 400px;
     height: 40vh;
     border-radius: 1.5rem;
+  }
+
+  .prompt__content {
+    margin-bottom: 1.5rem;
   }
 
   .card__content input {
