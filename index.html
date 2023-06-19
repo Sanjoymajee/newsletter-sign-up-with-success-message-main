@@ -19,11 +19,12 @@
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
-        font-size: 11px;
+        font-size: 16px;
         text-align: center;
+        color: hsl(234, 29%, 20%);
       }
       .attribution a {
-        color: hsl(228, 45%, 44%);
+        color: hsl(228, 50%, 47%);
       }
     </style>
   </head>
@@ -53,14 +54,17 @@
               <li>And much more!</li>
             </ul>
           </div>
-          <form method="GET">
+          <form method="POST">
             <div class="labels">
               <label for="email">Email address</label>
-              <label id="error" for="error">Valid email required</label>
+              <label id="error" for="error" class="error"
+                >Valid email required</label
+              >
             </div>
             <input
               name="email"
               id="email"
+              class="email"
               placeholder="email@company.com"
               autocomplete="off"
             />
@@ -78,19 +82,15 @@
     <section class="success-message" id="success-message">
       <div class="success__prompt">
         <div class="prompt__content">
-          <img
-            class="prompt__image"
-            src="/assets/images/icon-success.svg"
-            alt="success-message"
-          />
+          <img src="/assets/images/icon-success.svg" alt="success-message" />
           <h2>Thanks for subscribing!</h2>
           <p>
             A confirmation email has been sent to
             <span id="success-email"></span>. Please open it and click the
             button inside to confirm your subscription.
           </p>
-          <button id="dismissed">Dismiss message</button>
         </div>
+        <button id="dismissed">Dismiss message</button>
       </div>
     </section>
 
@@ -100,7 +100,7 @@
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
         >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+      >. Coded by <a href="#">Sanjoy Majee</a>.
     </div>
     <script src="script.js"></script>
   </body>

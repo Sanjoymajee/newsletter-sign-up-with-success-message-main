@@ -5,6 +5,16 @@ const inputEmailElement = document.getElementById("email");
 const errorTextElement = document.getElementById("error");
 const dismissedButtonElement = document.getElementById("dismissed");
 const successEmailElement = document.getElementById("success-email");
+
+inputEmailElement.addEventListener("input", (e) => {
+  const email = e.target.value;
+  if (email && !checkValidEmail(email)) {
+    showError();
+  } else {
+    removeError();
+  }
+});
+
 subscribeButton.addEventListener("click", (e) => {
   e.preventDefault();
   const email = inputEmailElement.value;
@@ -13,36 +23,29 @@ subscribeButton.addEventListener("click", (e) => {
     showError();
   } else {
     removeError();
-    signupFormComponent.style.display = "none";
-    successMessageComponent.style.display = "block";
+    signupFormComponent.classList.add("hide-signup-form");
+    successMessageComponent.classList.add("show-success");
     successEmailElement.innerHTML = email;
   }
 });
 
 dismissedButtonElement.addEventListener("click", (e) => {
-  successMessageComponent.style.display = "none";
-  signupFormComponent.style.display = "block";
+  successMessageComponent.classList.remove("show-success");
+  signupFormComponent.classList.remove("hide-signup-form");
 });
 
 const checkValidEmail = (email) => {
-  // write a regex for valid email
-  const regex = /^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/;
+  // write a regex for validating email
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 };
 
 const removeError = () => {
-  errorTextElement.style.display = "none";
-  inputEmailElement.style.border = "1px solid hsl(231, 7%, 60%)";
-  inputEmailElement.style.outline = "1px solid hsl(234, 29%, 20%)";
-  inputEmailElement.style.backgroundColor = "white";
-  inputEmailElement.style.color = "hsl(234, 29%, 20%)";
+  errorTextElement.classList.remove("show-error");
+  inputEmailElement.classList.remove("show-input-error");
 };
 
 const showError = () => {
-  errorTextElement.style.display = "block";
-  errorTextElement.style.color = "hsl(4, 100%, 67%)";
-  inputEmailElement.style.border = "1px solid hsl(4, 100%, 67%)";
-  inputEmailElement.style.outline = "1px solid hsl(4, 100%, 67%)";
-  inputEmailElement.style.backgroundColor = "rgb(242, 195, 192)";
-  inputEmailElement.style.color = "hsl(4, 100%, 67%)";
+  errorTextElement.classList.add("show-error");
+  inputEmailElement.classList.add("show-input-error");
 };
